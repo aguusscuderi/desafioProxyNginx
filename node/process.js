@@ -1,3 +1,4 @@
+let os = require('os')
 const PROCESS = {
         entry_args: process.argv.slice(2),
         platform_name: process.platform,
@@ -6,6 +7,7 @@ const PROCESS = {
         path_exe: process.cwd(),
         process_id: process.pid,
         app_file: process.argv[1],
+        cpus: os.cpus().length
     }
 
 module.exports = PROCESS

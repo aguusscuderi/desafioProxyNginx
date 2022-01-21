@@ -8,7 +8,7 @@ function serverRouter(app){
 
     router.get('/random', (req, res)=>{
         let { cant } = req.query
-        if(!cant) child_process.send(100000000)
+        if(!cant) child_process.send(10000)
         else child_process.send(cant)
         child_process.on('message', (response) => {
             console.log(`Respuesta del proceso hijo: ${response.res}`)
@@ -17,7 +17,6 @@ function serverRouter(app){
             res.send(`Los nros. aleatorios entre ${cant}, y la cantidad de veces repetidas: ${newData}`)
         })
     })
-
 }
 
 module.exports = serverRouter
